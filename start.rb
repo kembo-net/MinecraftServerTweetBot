@@ -26,7 +26,7 @@ IO.popen(cmd) do |o|
         client.update("サーバーを終了しました(#{time})"+tag_str)
       when /^<(\w+)> tweet (.*)$/ #ツイートコマンド
         main_text = $2
-        sub_text  = ' (' + $1 + ')' + tag_str
+        sub_text  = ' (' + $1 + ') #メモ' + tag_str
         text_len  = main_text.length + sub_text.length
         if text_len > 140
           client.update(main_text[0...(140 - text_len - 2)] + sub_text)
